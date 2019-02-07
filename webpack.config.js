@@ -1,20 +1,20 @@
+var path = require('path');
+var SRC_DIR = path.join(__dirname, '/src');
+var DIST_DIR = path.join(__dirname, '/dist');
+
 module.exports = {
-  entry: "./src/app.jsx",
-  module: {
-    rules: [
+  entry: `${SRC_DIR}/app.jsx`,
+  output: {
+    filename: 'bundle.js',
+    path: DIST_DIR
+  },
+  module : {
+    rules : [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"]
+        test : /\.jsx?/,
+        include : SRC_DIR,
+        loader : 'babel-loader',      
       }
     ]
-  },
-  resolve: {
-    extensions: ["*", ".js", ".jsx"]
-  },
-  output: {
-    path: __dirname + "/dist",
-    publicPath: "/",
-    filename: "bundle.js"
   }
 };
