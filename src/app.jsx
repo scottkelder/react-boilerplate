@@ -9,9 +9,11 @@ class App extends React.Component {
     }
   }
   render() {
-    <div>
-      I am a React App. Have fun!
-    </div>
+    return(
+      <div>
+        I am a React App. Have fun!
+      </div>
+    )    
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'))
